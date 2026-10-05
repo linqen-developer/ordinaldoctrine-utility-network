@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Length converter | Ordinal Doctrine</title>
+  <meta name="description" content="Convert millimetres, centimetres, metres, kilometres, inches, feet, yards and international miles.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://ordinaldoctrine.com/convert/length/">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/tool.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Convert","item":"https://ordinaldoctrine.com/convert/"},{"@type":"ListItem","position":2,"name":"Length converter","item":"https://ordinaldoctrine.com/convert/length/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Length converter","description":"Convert millimetres, centimetres, metres, kilometres, inches, feet, yards and international miles.","url":"https://ordinaldoctrine.com/convert/length/","applicationCategory":"UtilitiesApplication"}</script>
+</head>
+<body class="tool-page tool-length-converter">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="/">Ordinal Doctrine</a>
+      <nav class="desktop-nav" aria-label="Tool categories"><ul><li><a href="/calculators/">Calculators</a></li><li><a href="/convert/" aria-current="page">Convert</a></li><li><a href="/text/">Text</a></li></ul></nav>
+      <details class="mobile-menu">
+        <summary>All tools</summary>
+        <nav class="mobile-nav" aria-label="Mobile navigation"><ul><li><a href="/calculators/">Calculators</a></li><li><a href="/convert/" aria-current="page">Convert</a></li><li><a href="/text/">Text</a></li><li><a href="/about/">About</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/contact/">Contact</a></li></ul></nav>
+      </details>
+    </div>
+  </header>
+  <main id="main-content" class="page-shell" tabindex="-1"><div class="work-column">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/convert/">Convert</a></li><li><span aria-current="page">Length converter</span></li></ol></nav>
+    <h1>Length converter</h1>
+    <p class="lede">Convert common metric and imperial length units with explicit factors.</p>
+    <noscript><section class="startup-help"><h2>JavaScript is required for this tool</h2><p>Enable JavaScript and reload the page. The instructions and method remain available below.</p></section></noscript>
+    <section id="tool-startup-help" class="startup-help" role="alert" hidden>
+      <h2>Tool did not start</h2>
+      <p>The page is still available, but its calculation controls did not become ready. Reload the tool or use the <a href="/contact/">contact page</a> for help. Your current input is not attached to either action.</p>
+      <button id="reload-tool" class="button" type="button">Reload tool</button>
+    </section>
+    <section class="tool-surface" aria-label="Length conversion inputs and result">
+    <div class="converter-grid">
+      <div class="field converter-value">
+        <label for="length-value">Value</label>
+        <input id="length-value" type="text" inputmode="decimal" autocomplete="off" placeholder="For example, 12.5" aria-describedby="length-help length-error">
+        <p id="length-help" class="help">A decimal point and negative values are accepted. Exponents and thousands separators are not.</p>
+        <p id="length-error" class="field-error"></p>
+      </div>
+      <div class="field"><label for="from-unit">From</label><select id="from-unit"></select></div>
+      <div class="field"><label for="to-unit">To</label><select id="to-unit"></select></div>
+    </div>
+    <div class="converter-options">
+      <button id="swap-units" class="button" type="button">Swap units</button>
+      <div class="field">
+        <label for="precision">Displayed precision</label>
+        <select id="precision">
+          <option value="4">4 significant digits</option>
+          <option value="6" selected>6 significant digits</option>
+          <option value="10">10 significant digits</option>
+          <option value="15">15 significant digits</option>
+        </select>
+      </div>
+      <button id="reset-length" class="button" type="button">Reset</button>
+    </div>
+    <p class="privacy-note">Converted in this browser. Your value is not sent or stored.</p>
+    <div id="length-result" class="result-region">
+      <h2>Converted length</h2>
+      <p class="empty-result">Enter a value to see the conversion.</p>
+    </div>
+    <div class="action-row"><button id="copy-length-result" class="button button-primary" type="button" disabled>Copy result</button></div>
+    <p id="length-status" class="status-line" aria-hidden="true"></p>
+    <p id="length-live" class="sr-only" role="status" aria-live="polite"></p>
+  </section>
+    <section aria-labelledby="related-heading">
+      <h2 id="related-heading">Related tools</h2>
+      <ul class="link-list related-list">
+    <li><a href="/calculators/date-difference/"><span class="link-title">Date difference</span></a></li>
+    <li><a href="/text/word-character-counter/"><span class="link-title">Word and character counter</span></a></li></ul>
+    </section>
+    <section class="plain-section">
+    <h2>How to use it</h2>
+    <ol class="method-list"><li>Enter a decimal value.</li><li>Choose explicit from and to units, or swap them.</li><li>Choose the displayed significant digits and copy the result.</li></ol>
+    <h2>Conversion basis</h2>
+    <ul class="method-list"><li>All values pass through metres using fixed factors: 1 inch = 0.0254 metre, 1 foot = 0.3048 metre, 1 yard = 0.9144 metre and 1 international mile = 1,609.344 metres.</li><li>Metric factors are 1 millimetre = 0.001 metre, 1 centimetre = 0.01 metre and 1 kilometre = 1,000 metres.</li><li>Display rounding never changes the full internal conversion value. A repeating reciprocal in the conversion basis is shown with up to 15 significant digits.</li><li>Unit names follow the visible quantity: 1 and −1 use the singular form; zero and other values use the plural form. If rounding displays a target value as 1, its visible unit name is singular while the full internal value remains unchanged.</li><li>Negative values are accepted as mathematical conversions. Exponent notation, commas, infinity and values outside finite numeric range are rejected and retained for correction.</li></ul>
+    <h2>Examples</h2><p><strong>1 metre = 100 centimetres.</strong></p><p><strong>1 international mile = 1.609344 kilometres.</strong></p>
+  </section>
+    <p class="metadata">Method reviewed 4 October 2026.</p>
+  </div>
+  <script src="/assets/js/startup-watchdog.js" defer></script>
+  <script type="module" src="/assets/js/length-converter.js"></script></main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav aria-label="Site information"><ul class="footer-links"><li><a href="/about/">About</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/contact/">Contact</a></li><li><a href="mailto:deepbravelabs@gmail.com?subject=Ordinal%20Doctrine%20problem%20report">Report a problem</a></li></ul></nav>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,19 @@
+:root {
+  color-scheme: light;
+  --canvas: #f6f7f8;
+  --surface: #ffffff;
+  --text-strong: #20242a;
+  --text: #343a40;
+  --text-muted: #68707b;
+  --border: #d5dae0;
+  --border-strong: #858e99;
+  --action: #245fcc;
+  --action-hover: #1e4fae;
+  --focus: #1f6feb;
+  --success: #067647;
+  --error: #b42318;
+  --content: 1120px;
+  --work: 739px;
+  --radius-control: 6px;
+  --radius-surface: 8px;
+}

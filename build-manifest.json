@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "mode": "production",
+  "indexable": true,
+  "origin": "https://ordinaldoctrine.com",
+  "routes": [
+    "/",
+    "/calculators/",
+    "/convert/",
+    "/text/",
+    "/calculators/date-difference/",
+    "/convert/length/",
+    "/text/word-character-counter/",
+    "/about/",
+    "/privacy/",
+    "/terms/",
+    "/contact/"
+  ]
+}

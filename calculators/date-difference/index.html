@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Date difference calculator | Ordinal Doctrine</title>
+  <meta name="description" content="Find the calendar-day difference between two dates, including direction, weeks and an optional inclusive count.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://ordinaldoctrine.com/calculators/date-difference/">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/tool.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Calculators","item":"https://ordinaldoctrine.com/calculators/"},{"@type":"ListItem","position":2,"name":"Date","item":"https://ordinaldoctrine.com/calculators/date-difference/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Date difference calculator","description":"Find the calendar-day difference between two dates, including direction, weeks and an optional inclusive count.","url":"https://ordinaldoctrine.com/calculators/date-difference/","applicationCategory":"UtilitiesApplication"}</script>
+</head>
+<body class="tool-page tool-date-difference">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="/">Ordinal Doctrine</a>
+      <nav class="desktop-nav" aria-label="Tool categories"><ul><li><a href="/calculators/" aria-current="page">Calculators</a></li><li><a href="/convert/">Convert</a></li><li><a href="/text/">Text</a></li></ul></nav>
+      <details class="mobile-menu">
+        <summary>All tools</summary>
+        <nav class="mobile-nav" aria-label="Mobile navigation"><ul><li><a href="/calculators/" aria-current="page">Calculators</a></li><li><a href="/convert/">Convert</a></li><li><a href="/text/">Text</a></li><li><a href="/about/">About</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/contact/">Contact</a></li></ul></nav>
+      </details>
+    </div>
+  </header>
+  <main id="main-content" class="page-shell" tabindex="-1"><div class="work-column">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/calculators/">Calculators</a></li><li><span aria-current="page">Date</span></li></ol></nav>
+    <h1>Date difference calculator</h1>
+    <p class="lede">Find the number of calendar days between two dates.</p>
+    <noscript><section class="startup-help"><h2>JavaScript is required for this tool</h2><p>Enable JavaScript and reload the page. The instructions and method remain available below.</p></section></noscript>
+    <section id="tool-startup-help" class="startup-help" role="alert" hidden>
+      <h2>Tool did not start</h2>
+      <p>The page is still available, but its calculation controls did not become ready. Reload the tool or use the <a href="/contact/">contact page</a> for help. Your current input is not attached to either action.</p>
+      <button id="reload-tool" class="button" type="button">Reload tool</button>
+    </section>
+    <section class="tool-surface" aria-label="Date difference inputs and result">
+    <div class="field-grid">
+      <div class="field">
+        <label for="start-date">Start date</label>
+        <input id="start-date" type="date" min="0001-01-01" max="9999-12-31" aria-describedby="start-error">
+        <p id="start-error" class="field-error"></p>
+      </div>
+      <button id="swap-dates" class="button swap-button" type="button">Swap dates</button>
+      <div class="field">
+        <label for="end-date">End date</label>
+        <input id="end-date" type="date" min="0001-01-01" max="9999-12-31" aria-describedby="end-error">
+        <p id="end-error" class="field-error"></p>
+      </div>
+    </div>
+    <div class="option-row">
+      <label class="checkbox-label" for="include-start"><input id="include-start" type="checkbox"> Count the start date as day 1</label>
+    </div>
+    <p class="privacy-note">Calculated in this browser. Your dates are not sent or stored.</p>
+    <div id="date-result" class="result-region">
+      <h2>Difference between the dates</h2>
+      <p class="empty-result">Choose a start date and an end date to see the result.</p>
+    </div>
+    <div class="action-row">
+      <button id="copy-date-result" class="button button-primary" type="button" disabled>Copy result</button>
+      <button id="reset-dates-result" class="button" type="button">Reset</button>
+    </div>
+    <p id="date-status" class="status-line" aria-hidden="true"></p>
+    <p id="date-live" class="sr-only" role="status" aria-live="polite"></p>
+  </section>
+    <section aria-labelledby="related-heading">
+      <h2 id="related-heading">Related tools</h2>
+      <ul class="link-list related-list">
+    <li><a href="/convert/length/"><span class="link-title">Length converter</span></a></li>
+    <li><a href="/text/word-character-counter/"><span class="link-title">Word and character counter</span></a></li></ul>
+    </section>
+    <section class="plain-section">
+      <h2>How to use it</h2>
+      <ol class="method-list"><li>Choose a start date and an end date.</li><li>Optionally count the start date as day 1.</li><li>Read or copy the automatic result. Reverse order is valid.</li></ol>
+      <h2>How it works</h2>
+      <ul class="method-list"><li>Each value is validated as a real <code>YYYY-MM-DD</code> calendar date.</li><li>Dates are compared at UTC midnight in whole 86,400,000 millisecond days, so daylight-saving changes do not alter the count.</li><li>The ordinary difference excludes the start date. The option adds one counted day without changing the difference.</li><li>Time of day, time zone, holidays, business days and legal deadlines are not used.</li></ul>
+      <h2>Examples</h2>
+      <p><strong>4 Oct 2026 → 3 Nov 2026:</strong> 30 calendar days, or 4 weeks and 2 days.</p>
+      <p><strong>29 Feb 2024 → 1 Mar 2024:</strong> 1 calendar day.</p>
+    </section>
+    <p class="metadata">Method reviewed 4 October 2026.</p>
+  </div>
+  <script src="/assets/js/startup-watchdog.js" defer></script>
+  <script type="module" src="/assets/js/date-difference.js"></script></main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav aria-label="Site information"><ul class="footer-links"><li><a href="/about/">About</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/contact/">Contact</a></li><li><a href="mailto:deepbravelabs@gmail.com?subject=Ordinal%20Doctrine%20problem%20report">Report a problem</a></li></ul></nav>
+    </div>
+  </footer>
+</body>
+</html>
