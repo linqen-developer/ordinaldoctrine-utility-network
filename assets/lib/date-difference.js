@@ -1,47 +1,6 @@
-const DAY_MS = 86_400_000;
-const ISO_DATE = /^(\d{4})-(\d{2})-(\d{2})$/;
-const MONTHS = [
-  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-];
+import { DAY_MS, formatNamedDate, parseIsoDate, plural } from "./date-utils.js";
 
-export function parseIsoDate(value) {
-  if (typeof value !== "string") {
-    return { ok: false, error: "Enter a valid calendar date." };
-  }
-
-  const match = ISO_DATE.exec(value);
-  if (!match) {
-    return { ok: false, error: "Enter a valid calendar date in YYYY-MM-DD format." };
-  }
-
-  const year = Number(match[1]);
-  const month = Number(match[2]);
-  const day = Number(match[3]);
-  if (year < 1 || year > 9999 || month < 1 || month > 12 || day < 1 || day > 31) {
-    return { ok: false, error: "Enter a valid calendar date." };
-  }
-
-  const date = new Date(0);
-  date.setUTCHours(0, 0, 0, 0);
-  date.setUTCFullYear(year, month - 1, day);
-  if (
-    date.getUTCFullYear() !== year ||
-    date.getUTCMonth() !== month - 1 ||
-    date.getUTCDate() !== day
-  ) {
-    return { ok: false, error: "Enter a valid calendar date." };
-  }
-
-  return {
-    ok: true,
-    value,
-    year,
-    month,
-    day,
-    timestamp: date.getTime()
-  };
-}
+export { formatNamedDate, parseIsoDate, plural } from "./date-utils.js";
 
 export function calculateDateDifference(startValue, endValue, includeStart = false) {
   const start = parseIsoDate(startValue);
@@ -70,16 +29,6 @@ export function calculateDateDifference(startValue, endValue, includeStart = fal
     end: end.value,
     includeStart: Boolean(includeStart)
   };
-}
-
-export function formatNamedDate(value) {
-  const parsed = parseIsoDate(value);
-  if (!parsed.ok) return value;
-  return `${parsed.day} ${MONTHS[parsed.month - 1]} ${parsed.year}`;
-}
-
-export function plural(value, singular, pluralForm = `${singular}s`) {
-  return `${value} ${value === 1 ? singular : pluralForm}`;
 }
 
 export function describeDateDifference(result) {

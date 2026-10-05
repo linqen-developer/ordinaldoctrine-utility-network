@@ -12,6 +12,13 @@
   gap: 20px;
 }
 
+.date-input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  align-items: start;
+  gap: 10px 20px;
+}
+
 .field {
   min-width: 0;
 }

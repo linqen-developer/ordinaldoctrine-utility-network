@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ISO week number calculator | Ordinal Doctrine</title>
+  <meta name="description" content="Find the ISO 8601 week-year and week number for one strict Gregorian calendar date.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://ordinaldoctrine.com/calculators/week-number/">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/tool.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Calculators","item":"https://ordinaldoctrine.com/calculators/"},{"@type":"ListItem","position":2,"name":"ISO week number","item":"https://ordinaldoctrine.com/calculators/week-number/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ISO week number calculator","description":"Find the ISO 8601 week-year and week number for one strict Gregorian calendar date.","url":"https://ordinaldoctrine.com/calculators/week-number/","applicationCategory":"UtilitiesApplication"}</script>
+</head>
+<body class="tool-page tool-week-number">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="/">Ordinal Doctrine</a>
+      <nav class="desktop-nav" aria-label="Tool categories"><ul><li><a href="/calculators/" aria-current="page">Calculators</a></li><li><a href="/convert/">Convert</a></li><li><a href="/text/">Text</a></li></ul></nav>
+      <details class="mobile-menu">
+        <summary>All tools</summary>
+        <nav class="mobile-nav" aria-label="Mobile navigation"><ul><li><a href="/calculators/" aria-current="page">Calculators</a></li><li><a href="/convert/">Convert</a></li><li><a href="/text/">Text</a></li><li><a href="/about/">About</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/contact/">Contact</a></li></ul></nav>
+      </details>
+    </div>
+  </header>
+  <main id="main-content" class="page-shell" tabindex="-1"><div class="work-column">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/calculators/">Calculators</a></li><li><span aria-current="page">ISO week number</span></li></ol></nav>
+    <h1>ISO week number calculator</h1>
+    <p class="lede">Find the ISO week-year and week number for a date.</p>
+    <noscript><section class="startup-help"><h2>JavaScript is required for this tool</h2><p>Enable JavaScript and reload the page. The instructions and method remain available below.</p></section></noscript>
+    <section id="tool-startup-help" class="startup-help" role="alert" hidden>
+      <h2>Tool did not start</h2>
+      <p>The page is still available, but its calculation controls did not become ready. Reload the tool or use the <a href="/contact/">contact page</a> for help. Your current input is not attached to either action.</p>
+      <button id="reload-tool" class="button" type="button">Reload tool</button>
+    </section>
+    <section class="tool-surface" data-date-tool="week-number" aria-label="ISO week input and result">
+    <div class="date-input-grid"><div class="field">
+    <label for="week-date">Date</label>
+    <input id="week-date" type="date" min="0001-01-01" max="9999-12-31" aria-describedby="week-date-error">
+    <p id="week-date-error" class="field-error"></p>
+  </div></div>
+    <p class="privacy-note">Calculated in this browser. Your dates are not sent or stored.</p>
+    <div id="date-tool-result" class="result-region">
+      <h2>ISO week</h2>
+      <p class="empty-result">Choose a date to find its ISO week.</p>
+    </div>
+    <div class="action-row">
+      <button id="date-tool-copy" class="button button-primary" type="button" disabled>Copy result</button>
+      <button id="date-tool-reset" class="button" type="button">Reset</button>
+    </div>
+    <p id="date-tool-status" class="status-line" aria-hidden="true"></p>
+    <p id="date-tool-live" class="sr-only" role="status" aria-live="polite"></p>
+  </section>
+    <section aria-labelledby="related-heading">
+      <h2 id="related-heading">Related tools</h2>
+      <ul class="link-list related-list">
+    <li><a href="/calculators/date-difference/"><span class="link-title">Date difference</span></a></li>
+    <li><a href="/calculators/age/"><span class="link-title">Age calculator</span></a></li>
+    <li><a href="/calculators/add-subtract-date/"><span class="link-title">Add or subtract date</span></a></li></ul>
+    </section>
+    <section class="plain-section">
+      <h2>How to use it</h2>
+      <ol class="method-list"><li>Choose one Gregorian date.</li><li>Read or copy its ISO week-year and week number.</li></ol>
+      <h2>Method and limitations</h2>
+      <ul class="method-list"><li>ISO 8601 weeks start on Monday.</li><li>Week 1 is the week containing 4 January, equivalently the first Thursday of the ISO week-year.</li><li>The ISO week-year can differ from the date's calendar year near New Year. No locale-specific Sunday-first or partial-week rule is used.</li></ul>
+      <h2>Examples</h2><p><strong>1 Jan 2016:</strong> 2015-W53.</p><p><strong>4 Jan 2016:</strong> 2016-W01.</p>
+    </section>
+    <p class="metadata">Method reviewed 5 October 2026.</p>
+  </div>
+  <script src="/assets/js/startup-watchdog.js" defer></script>
+  <script type="module" src="/assets/js/date-calculators.js"></script></main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav aria-label="Site information"><ul class="footer-links"><li><a href="/about/">About</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/contact/">Contact</a></li><li><a href="mailto:deepbravelabs@gmail.com?subject=Ordinal%20Doctrine%20problem%20report">Report a problem</a></li></ul></nav>
+    </div>
+  </footer>
+</body>
+</html>
