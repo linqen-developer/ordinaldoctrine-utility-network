@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self' blob:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
   <title>Age calculator by date of birth | Ordinal Doctrine</title>
   <meta name="description" content="Calculate completed birthday-based age in years, months and days on a selected Gregorian calendar date.">
   <meta name="robots" content="index,follow">
@@ -18,10 +19,10 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="wordmark" href="/">Ordinal Doctrine</a>
-      <nav class="desktop-nav" aria-label="Tool categories"><ul><li><a href="/calculators/" aria-current="page">Calculators</a></li><li><a href="/convert/">Convert</a></li><li><a href="/text/">Text</a></li></ul></nav>
+      <nav class="desktop-nav" aria-label="Tool categories"><ul><li><a href="/calculators/" aria-current="page">Calculators</a></li><li><a href="/convert/">Convert</a></li><li><a href="/text/">Text</a></li><li><a href="/images/">Images</a></li></ul></nav>
       <details class="mobile-menu">
         <summary>All tools</summary>
-        <nav class="mobile-nav" aria-label="Mobile navigation"><ul><li><a href="/calculators/" aria-current="page">Calculators</a></li><li><a href="/convert/">Convert</a></li><li><a href="/text/">Text</a></li><li><a href="/about/">About</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/contact/">Contact</a></li></ul></nav>
+        <nav class="mobile-nav" aria-label="Mobile navigation"><ul><li><a href="/calculators/" aria-current="page">Calculators</a></li><li><a href="/convert/">Convert</a></li><li><a href="/text/">Text</a></li><li><a href="/images/">Images</a></li><li><a href="/about/">About</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/contact/">Contact</a></li></ul></nav>
       </details>
     </div>
   </header>
@@ -32,7 +33,7 @@
     <noscript><section class="startup-help"><h2>JavaScript is required for this tool</h2><p>Enable JavaScript and reload the page. The instructions and method remain available below.</p></section></noscript>
     <section id="tool-startup-help" class="startup-help" role="alert" hidden>
       <h2>Tool did not start</h2>
-      <p>The page is still available, but its calculation controls did not become ready. Reload the tool or use the <a href="/contact/">contact page</a> for help. Your current input is not attached to either action.</p>
+      <p>The page is still available, but its working controls did not become ready. Reload the tool or use the <a href="/contact/">contact page</a> for help. Your current input is not attached to either action.</p>
       <button id="reload-tool" class="button" type="button">Reload tool</button>
     </section>
     <section class="tool-surface" data-date-tool="age" aria-label="Age inputs and result">
@@ -73,7 +74,7 @@
       <p><strong>29 Feb 2024 → 28 Feb 2025:</strong> 1 year, 0 months and 0 days under the stated month-end rule.</p>
       <p><strong>15 Jun 2000 → 20 Aug 2026:</strong> 26 years, 2 months and 5 days.</p>
     </section>
-    <p class="metadata">Method reviewed 5 October 2026.</p>
+    <p class="metadata">Method reviewed 6 October 2026.</p>
   </div>
   <script src="/assets/js/startup-watchdog.js" defer></script>
   <script type="module" src="/assets/js/date-calculators.js"></script></main>

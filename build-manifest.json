@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "mode": "production",
   "indexable": true,
   "origin": "https://ordinaldoctrine.com",
@@ -8,6 +8,7 @@
     "/calculators/",
     "/convert/",
     "/text/",
+    "/images/",
     "/calculators/date-difference/",
     "/calculators/age/",
     "/calculators/add-subtract-date/",
@@ -16,6 +17,7 @@
     "/calculators/day-of-week/",
     "/convert/length/",
     "/text/word-character-counter/",
+    "/images/compress/",
     "/about/",
     "/privacy/",
     "/terms/",
