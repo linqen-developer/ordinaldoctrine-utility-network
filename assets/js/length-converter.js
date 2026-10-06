@@ -3,8 +3,7 @@ import {
   conversionBasis,
   convertLength,
   formatSignificant,
-  parseDecimalNumber,
-  unitNameForQuantity
+  parseDecimalNumber
 } from "../lib/length-converter.js";
 import { copyPlainText, markToolReady, resetCopyFeedback, setStatus } from "./shared-ui.js";
 
@@ -22,7 +21,7 @@ let currentCopy = "";
 function renderEmpty(message) {
   currentCopy = "";
   copyButton.disabled = true;
-  resultRegion.innerHTML = `<h2>Converted length</h2><p class="empty-result">${message}</p>`;
+  resultRegion.innerHTML = `<h2 class="sr-only">Result</h2><p class="empty-result">${message}</p>`;
   liveStatus.textContent = message;
 }
 
@@ -50,17 +49,14 @@ function render() {
   const precision = Number(precisionSelect.value);
   const formatted = formatSignificant(converted.value, precision);
   const inputFormatted = valueInput.value;
-  const sourceName = unitNameForQuantity(converted.from, parsed.value);
-  const targetName = unitNameForQuantity(converted.to, Number(formatted));
   const basis = conversionBasis(fromSelect.value, toSelect.value);
   currentCopy = `${inputFormatted} ${converted.from.symbol} = ${formatted} ${converted.to.symbol}\n${basis}\nDisplayed with ${precision} significant digits.`;
   copyButton.disabled = false;
   resultRegion.innerHTML = `
-    <h2>Converted length</h2>
+    <h2 class="sr-only">Result</h2>
     <p class="result-primary">${formatted} <span class="result-unit">${converted.to.symbol}</span></p>
-    <p class="result-direction">${inputFormatted} ${sourceName} (${converted.from.symbol}) equals ${formatted} ${targetName} (${converted.to.symbol}).</p>
-    <p class="basis"><strong>Conversion basis:</strong> ${basis}</p>
-    <p class="result-note">Displayed with ${precision} significant digits. Full internal precision is retained when this setting changes.${parsed.value < 0 ? " Negative values are accepted as mathematical conversions." : ""}</p>`;
+    <p class="result-direction">${inputFormatted} ${converted.from.symbol} → ${formatted} ${converted.to.symbol}</p>
+    <p class="basis">${basis} · ${precision} significant digits</p>`;
   liveStatus.textContent = `${inputFormatted} ${converted.from.symbol} equals ${formatted} ${converted.to.symbol}.`;
 }
 

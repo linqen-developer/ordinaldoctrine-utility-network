@@ -29,7 +29,6 @@
   <main id="main-content" class="page-shell" tabindex="-1"><div class="work-column">
     <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/calculators/">Calculators</a></li><li><span aria-current="page">Date</span></li></ol></nav>
     <h1>Date difference calculator</h1>
-    <p class="lede">Find the number of calendar days between two dates.</p>
     <noscript><section class="startup-help"><h2>JavaScript is required for this tool</h2><p>Enable JavaScript and reload the page. The instructions and method remain available below.</p></section></noscript>
     <section id="tool-startup-help" class="startup-help" role="alert" hidden>
       <h2>Tool did not start</h2>
@@ -53,10 +52,10 @@
     <div class="option-row">
       <label class="checkbox-label" for="include-start"><input id="include-start" type="checkbox"> Count the start date as day 1</label>
     </div>
-    <p class="privacy-note">Calculated in this browser. Your dates are not sent or stored.</p>
+    <p class="privacy-note">On this device · not sent or stored</p>
     <div id="date-result" class="result-region">
-      <h2>Difference between the dates</h2>
-      <p class="empty-result">Choose a start date and an end date to see the result.</p>
+      <h2>Result</h2>
+      <p class="empty-result">Choose two dates.</p>
     </div>
     <div class="action-row">
       <button id="copy-date-result" class="button button-primary" type="button" disabled>Copy result</button>
@@ -65,23 +64,11 @@
     <p id="date-status" class="status-line" aria-hidden="true"></p>
     <p id="date-live" class="sr-only" role="status" aria-live="polite"></p>
   </section>
-    <section aria-labelledby="related-heading">
-      <h2 id="related-heading">Related tools</h2>
-      <ul class="link-list related-list">
-    <li><a href="/calculators/age/"><span class="link-title">Age calculator</span></a></li>
-    <li><a href="/calculators/add-subtract-date/"><span class="link-title">Add or subtract date</span></a></li>
-    <li><a href="/calculators/business-days/"><span class="link-title">Business days</span></a></li></ul>
-    </section>
-    <section class="plain-section">
-      <h2>How to use it</h2>
-      <ol class="method-list"><li>Choose a start date and an end date.</li><li>Optionally count the start date as day 1.</li><li>Read or copy the automatic result. Reverse order is valid.</li></ol>
-      <h2>How it works</h2>
-      <ul class="method-list"><li>Each value is validated as a real <code>YYYY-MM-DD</code> calendar date.</li><li>Dates are compared at UTC midnight in whole 86,400,000 millisecond days, so daylight-saving changes do not alter the count.</li><li>The ordinary difference excludes the start date. The option adds one counted day without changing the difference.</li><li>Time of day, time zone, holidays, business days and legal deadlines are not used.</li></ul>
-      <h2>Examples</h2>
-      <p><strong>4 Oct 2026 → 3 Nov 2026:</strong> 30 calendar days, or 4 weeks and 2 days.</p>
-      <p><strong>29 Feb 2024 → 1 Mar 2024:</strong> 1 calendar day.</p>
-    </section>
-    <p class="metadata">Method reviewed 6 October 2026.</p>
+    <nav class="more-tools" aria-label="Related tools"><span>More</span><ul><li><a href="/calculators/age/">Age calculator</a></li><li><a href="/calculators/add-subtract-date/">Add or subtract date</a></li><li><a href="/calculators/business-days/">Business days</a></li></ul></nav>
+    <details class="page-details">
+      <summary>Method & limits</summary>
+      <div class="page-details-body"><ul class="method-list"><li>Counts whole calendar days; the start date is excluded unless you select day 1.</li><li>Uses UTC date-only arithmetic, so daylight-saving changes do not alter the count.</li><li>Holidays, business days, times and legal deadlines are not included.</li></ul><p class="metadata">Reviewed 6 October 2026.</p></div>
+    </details>
   </div>
   <script src="/assets/js/startup-watchdog.js" defer></script>
   <script type="module" src="/assets/js/date-difference.js"></script></main>

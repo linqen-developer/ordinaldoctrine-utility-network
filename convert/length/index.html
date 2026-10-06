@@ -29,7 +29,6 @@
   <main id="main-content" class="page-shell" tabindex="-1"><div class="work-column">
     <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/convert/">Convert</a></li><li><span aria-current="page">Length converter</span></li></ol></nav>
     <h1>Length converter</h1>
-    <p class="lede">Convert common metric and imperial length units with explicit factors.</p>
     <noscript><section class="startup-help"><h2>JavaScript is required for this tool</h2><p>Enable JavaScript and reload the page. The instructions and method remain available below.</p></section></noscript>
     <section id="tool-startup-help" class="startup-help" role="alert" hidden>
       <h2>Tool did not start</h2>
@@ -41,7 +40,7 @@
       <div class="field converter-value">
         <label for="length-value">Value</label>
         <input id="length-value" type="text" inputmode="decimal" autocomplete="off" placeholder="For example, 12.5" aria-describedby="length-help length-error">
-        <p id="length-help" class="help">A decimal point and negative values are accepted. Exponents and thousands separators are not.</p>
+        <p id="length-help" class="sr-only">Enter a decimal value. Negative values are accepted.</p>
         <p id="length-error" class="field-error"></p>
       </div>
       <div class="field"><label for="from-unit">From</label><select id="from-unit"></select></div>
@@ -50,7 +49,7 @@
     <div class="converter-options">
       <button id="swap-units" class="button" type="button">Swap units</button>
       <div class="field">
-        <label for="precision">Displayed precision</label>
+        <label for="precision">Precision</label>
         <select id="precision">
           <option value="4">4 significant digits</option>
           <option value="6" selected>6 significant digits</option>
@@ -60,7 +59,7 @@
       </div>
       <button id="reset-length" class="button" type="button">Reset</button>
     </div>
-    <p class="privacy-note">Converted in this browser. Your value is not sent or stored.</p>
+    <p class="privacy-note">On this device · not sent or stored</p>
     <div id="length-result" class="result-region">
       <h2>Converted length</h2>
       <p class="empty-result">Enter a value to see the conversion.</p>
@@ -69,21 +68,10 @@
     <p id="length-status" class="status-line" aria-hidden="true"></p>
     <p id="length-live" class="sr-only" role="status" aria-live="polite"></p>
   </section>
-    <section aria-labelledby="related-heading">
-      <h2 id="related-heading">Related tools</h2>
-      <ul class="link-list related-list">
-    <li><a href="/calculators/date-difference/"><span class="link-title">Date difference</span></a></li>
-    <li><a href="/calculators/age/"><span class="link-title">Age calculator</span></a></li>
-    <li><a href="/calculators/add-subtract-date/"><span class="link-title">Add or subtract date</span></a></li></ul>
-    </section>
-    <section class="plain-section">
-    <h2>How to use it</h2>
-    <ol class="method-list"><li>Enter a decimal value.</li><li>Choose explicit from and to units, or swap them.</li><li>Choose the displayed significant digits and copy the result.</li></ol>
-    <h2>Conversion basis</h2>
-    <ul class="method-list"><li>All values pass through metres using fixed factors: 1 inch = 0.0254 metre, 1 foot = 0.3048 metre, 1 yard = 0.9144 metre and 1 international mile = 1,609.344 metres.</li><li>Metric factors are 1 millimetre = 0.001 metre, 1 centimetre = 0.01 metre and 1 kilometre = 1,000 metres.</li><li>Display rounding never changes the full internal conversion value. A repeating reciprocal in the conversion basis is shown with up to 15 significant digits.</li><li>Unit names follow the visible quantity: 1 and −1 use the singular form; zero and other values use the plural form. If rounding displays a target value as 1, its visible unit name is singular while the full internal value remains unchanged.</li><li>Negative values are accepted as mathematical conversions. Exponent notation, commas, infinity and values outside finite numeric range are rejected and retained for correction.</li></ul>
-    <h2>Examples</h2><p><strong>1 metre = 100 centimetres.</strong></p><p><strong>1 international mile = 1.609344 kilometres.</strong></p>
-  </section>
-    <p class="metadata">Method reviewed 6 October 2026.</p>
+    <details class="page-details">
+      <summary>Method & limits</summary>
+      <div class="page-details-body"><ul class="method-list"><li>Converts through metres using exact international factors.</li><li>Displayed precision changes rounding only, not the stored conversion value.</li><li>Exponent notation and thousands separators are not accepted.</li></ul><p class="metadata">Reviewed 6 October 2026.</p></div>
+    </details>
   </div>
   <script src="/assets/js/startup-watchdog.js" defer></script>
   <script type="module" src="/assets/js/length-converter.js"></script></main>

@@ -33,7 +33,7 @@ function ageView() {
   return {
     ...result,
     headline,
-    summary: `Completed birthday-based age on ${formatNamedDate(result.selected)}.`,
+    summary: "",
     details: [["Completed years", plural(result.years, "year")], ["Remaining months", plural(result.months, "month")], ["Remaining days", plural(result.days, "day")]],
     trace,
     note: "Month-end birthdays use the last valid day when a target month is shorter.",
@@ -52,7 +52,7 @@ function addSubtractView() {
     summary: action,
     details: [["ISO date", result.result], ["Signed offset", result.offset > 0 ? `+${result.offset}` : String(result.offset)]],
     trace,
-    note: "Whole calendar days are added at UTC date boundaries; time zones and times of day are not used.",
+    note: "",
     copy: `${trace}\nResult: ${formatNamedDate(result.result)} (${result.result}).`
   };
 }
@@ -62,15 +62,14 @@ function businessDaysView() {
   if (!result.ok) return result;
   const startRule = result.includeStart ? "included" : "excluded";
   const endRule = result.includeEnd ? "included" : "excluded";
-  const direction = result.direction === "same" ? "The two dates are the same." : `The end date is ${result.direction} the start date.`;
   const trace = `${formatNamedDate(result.start)} → ${formatNamedDate(result.end)}`;
   return {
     ...result,
     headline: plural(result.businessDays, "business day"),
-    summary: direction,
+    summary: "",
     details: [["Start date", startRule], ["End date", endRule]],
     trace,
-    note: "Only Monday to Friday are counted. Public holidays and country-specific rules are not included.",
+    note: `Start ${startRule} · end ${endRule} · Mon-Fri only · no holidays`,
     copy: `${trace}\nBusiness days: ${result.businessDays}.\nStart date ${startRule}; end date ${endRule}.\nMonday–Friday only; public holidays are not included.`
   };
 }
@@ -82,7 +81,7 @@ function isoWeekView() {
   return {
     ...result,
     headline: weekLabel,
-    summary: `${formatNamedDate(result.date)} is in ISO week ${result.week} of ISO week-year ${result.weekYear}.`,
+    summary: "",
     details: [["ISO week-year", String(result.weekYear)], ["ISO week number", String(result.week)]],
     trace: formatNamedDate(result.date),
     note: "ISO weeks start on Monday. Week 1 is the week containing 4 January.",
@@ -96,7 +95,7 @@ function weekdayView() {
   return {
     ...result,
     headline: result.weekday,
-    summary: `${formatNamedDate(result.date)} falls on a ${result.weekday}.`,
+    summary: "",
     details: [["Weekday number", `${result.weekdayIndex} (Sunday = 0)`], ["Calendar", "Gregorian"]],
     trace: formatNamedDate(result.date),
     note: "The date is evaluated at UTC midnight, independent of the browser's local time zone.",
@@ -164,7 +163,7 @@ function clearErrors() {
 function renderEmpty(message) {
   currentCopy = "";
   copyButton.disabled = true;
-  resultRegion.innerHTML = `<h2>${configuration.heading}</h2><p class="empty-result">${message}</p>`;
+  resultRegion.innerHTML = `<h2 class="sr-only">${configuration.heading}</h2><p class="empty-result">${message}</p>`;
   liveStatus.textContent = message;
 }
 
@@ -186,14 +185,13 @@ function render() {
 
   currentCopy = result.copy;
   copyButton.disabled = false;
-  const details = result.details.map(([term, description]) => `<div class="result-detail"><dt>${term}</dt><dd>${description}</dd></div>`).join("");
+  const summary = result.summary ? `<p class="result-direction">${result.summary}</p>` : "";
+  const trace = result.trace ? `<p class="result-trace"><strong>${result.trace}</strong></p>` : "";
+  const note = result.note ? `<p class="result-note">${result.note}</p>` : "";
   resultRegion.innerHTML = `
-    <h2>${configuration.heading}</h2>
+    <h2 class="sr-only">${configuration.heading}</h2>
     <p class="result-primary">${result.headline}</p>
-    <p class="result-direction">${result.summary}</p>
-    <dl class="result-details">${details}</dl>
-    <p class="result-trace"><strong>${result.trace}</strong></p>
-    <p class="result-note">${result.note}</p>`;
+    ${summary}${trace}${note}`;
   liveStatus.textContent = `${result.headline}. ${result.summary}`;
 }
 

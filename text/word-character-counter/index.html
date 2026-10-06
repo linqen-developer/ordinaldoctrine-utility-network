@@ -29,7 +29,6 @@
   <main id="main-content" class="page-shell" tabindex="-1"><div class="work-column">
     <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/text/">Text</a></li><li><span aria-current="page">Word and character counter</span></li></ol></nav>
     <h1>Word and character counter</h1>
-    <p class="lede">Count words, characters, lines and paragraphs as you type.</p>
     <noscript><section class="startup-help"><h2>JavaScript is required for this tool</h2><p>Enable JavaScript and reload the page. The instructions and method remain available below.</p></section></noscript>
     <section id="tool-startup-help" class="startup-help" role="alert" hidden>
       <h2>Tool did not start</h2>
@@ -40,15 +39,20 @@
     <div class="field">
       <label for="counter-text">Text to count</label>
       <textarea id="counter-text" rows="8" spellcheck="false" aria-describedby="counter-privacy"></textarea>
-      <p id="counter-privacy" class="privacy-note">Counted in this browser. Your text is not sent or stored.</p>
+      <p id="counter-privacy" class="privacy-note">On this device · not sent or stored</p>
     </div>
-    <dl class="counter-list" aria-label="Text counts">
+    <dl class="counter-list counter-primary" aria-label="Primary text counts">
       <div class="counter-row"><dt class="counter-label">Words</dt><dd><output id="count-words" class="counter-value">0</output></dd></div>
-      <div class="counter-row"><dt class="counter-label">Characters including whitespace</dt><dd><output id="count-characters" class="counter-value">0</output></dd></div>
-      <div class="counter-row"><dt class="counter-label">Characters excluding whitespace</dt><dd><output id="count-characters-no-space" class="counter-value">0</output></dd></div>
-      <div class="counter-row"><dt class="counter-label">Lines</dt><dd><output id="count-lines" class="counter-value">0</output></dd></div>
-      <div class="counter-row"><dt class="counter-label">Paragraphs</dt><dd><output id="count-paragraphs" class="counter-value">0</output></dd></div>
+      <div class="counter-row"><dt class="counter-label">Characters</dt><dd><output id="count-characters" class="counter-value">0</output></dd></div>
     </dl>
+    <details class="counter-more">
+      <summary>More counts</summary>
+      <dl class="counter-list counter-secondary" aria-label="Additional text counts">
+        <div class="counter-row"><dt class="counter-label">No spaces</dt><dd><output id="count-characters-no-space" class="counter-value">0</output></dd></div>
+        <div class="counter-row"><dt class="counter-label">Lines</dt><dd><output id="count-lines" class="counter-value">0</output></dd></div>
+        <div class="counter-row"><dt class="counter-label">Paragraphs</dt><dd><output id="count-paragraphs" class="counter-value">0</output></dd></div>
+      </dl>
+    </details>
     <div class="action-row">
       <button id="clear-text" class="button" type="button">Clear text</button>
       <button id="copy-text" class="button button-primary" type="button" disabled>Copy text</button>
@@ -56,22 +60,10 @@
     <p id="text-status" class="status-line" aria-hidden="true"></p>
     <p id="text-live" class="sr-only" role="status" aria-live="polite"></p>
   </section>
-    <section aria-labelledby="related-heading">
-      <h2 id="related-heading">Related tools</h2>
-      <ul class="link-list related-list">
-    <li><a href="/calculators/date-difference/"><span class="link-title">Date difference</span></a></li>
-    <li><a href="/calculators/age/"><span class="link-title">Age calculator</span></a></li>
-    <li><a href="/calculators/add-subtract-date/"><span class="link-title">Add or subtract date</span></a></li></ul>
-    </section>
-    <section class="plain-section">
-      <h2>How to use it</h2>
-      <ol class="method-list"><li>Type or paste text into the text area.</li><li>Read the live counts.</li><li>Copy the text or clear it when finished.</li></ol>
-      <h2>Counting method</h2>
-      <ul class="method-list"><li><strong>Words:</strong> the browser's built-in word segmenter is used when available. Apostrophes within words normally stay together; hyphens may form boundaries; standalone emoji do not count as words; non-Latin scripts use the browser's language-independent segmentation.</li><li><strong>Word fallback:</strong> Unicode letter or number groups count as words, with internal apostrophes and hyphens kept together. A continuous script with no spaces may count as one word.</li><li><strong>Characters:</strong> visible grapheme clusters are counted when supported, so a joined emoji can count as one. The fallback counts Unicode code points, which can count combining sequences differently.</li><li><strong>Lines:</strong> any non-empty input has at least one line. Each line break adds one. <strong>Paragraphs:</strong> non-empty blocks separated by one or more blank lines.</li></ul>
-      <p>Other applications may use different counting rules. This tool does not claim one universal linguistic count.</p>
-      <h2>Example</h2><p><strong>“Don't re-enter 🚀”</strong> has two words with the fallback method; the standalone emoji is not a word.</p>
-    </section>
-    <p class="metadata">Method reviewed 6 October 2026.</p>
+    <details class="page-details">
+      <summary>Method & limits</summary>
+      <div class="page-details-body"><ul class="method-list"><li>Uses the browser word segmenter when available, with a Unicode-aware fallback.</li><li>Characters are grapheme clusters when supported; other apps may count differently.</li><li>Lines follow line breaks; paragraphs are blocks separated by blank lines.</li></ul><p class="metadata">Reviewed 6 October 2026.</p></div>
+    </details>
   </div>
   <script src="/assets/js/startup-watchdog.js" defer></script>
   <script type="module" src="/assets/js/word-character-counter.js"></script></main>

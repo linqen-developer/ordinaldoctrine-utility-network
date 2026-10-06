@@ -1,6 +1,5 @@
 import {
   calculateDateDifference,
-  describeDateDifference,
   formatDateCopy,
   formatNamedDate,
   plural
@@ -26,7 +25,7 @@ function setFieldError(input, errorElement, message = "") {
 function renderEmpty(message) {
   currentResult = null;
   copyButton.disabled = true;
-  resultRegion.innerHTML = `<h2>Difference between the dates</h2><p class="empty-result">${message}</p>`;
+  resultRegion.innerHTML = `<h2 class="sr-only">Result</h2><p class="empty-result">${message}</p>`;
   liveStatus.textContent = message;
 }
 
@@ -64,20 +63,17 @@ function render() {
 
   const breakdown = `${plural(result.weeks, "week")} and ${plural(result.remainingDays, "day")}`;
   const countRule = result.includeStart
-    ? `Start date counted as day 1: ${plural(result.countedDays, "counted day")}`
-    : "Start date not counted";
+    ? `${plural(result.countedDays, "counted day")} · start counted as day 1`
+    : "Start excluded";
+  const direction = result.direction === "same" ? "Same date" : `${breakdown} · ${result.direction} the start date`;
 
   resultRegion.innerHTML = `
-    <h2>Difference between the dates</h2>
+    <h2 class="sr-only">Result</h2>
     <p class="result-primary">${plural(result.absoluteDays, "day")}</p>
-    <p class="result-direction">${describeDateDifference(result)}</p>
-    <dl class="result-details">
-      <div class="result-detail"><dt>Weeks and days</dt><dd>${breakdown}</dd></div>
-      <div class="result-detail"><dt>Count rule</dt><dd>${countRule}</dd></div>
-    </dl>
+    <p class="result-direction">${direction}</p>
     <p class="result-trace"><strong>${formatNamedDate(result.start)}</strong> → <strong>${formatNamedDate(result.end)}</strong></p>
-    <p class="result-note">Calendar dates only. Time of day and time zone are not used.</p>`;
-  liveStatus.textContent = `${plural(result.absoluteDays, "day")}. ${describeDateDifference(result)} ${countRule}.`;
+    <p class="result-note">${countRule} · calendar days · no holidays or time zones</p>`;
+  liveStatus.textContent = `${plural(result.absoluteDays, "day")}. ${direction}. ${countRule}.`;
 }
 
 for (const element of [startInput, endInput, includeStart]) {

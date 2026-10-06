@@ -56,23 +56,12 @@ function clearResult() {
   placeholder.className = "image-result-placeholder";
   const kicker = document.createElement("p");
   kicker.className = "result-kicker";
-  kicker.textContent = "Measured output";
+  kicker.textContent = "Output";
   const heading = document.createElement("h2");
-  heading.textContent = "Your result will appear here";
+  heading.textContent = "Result";
   const description = document.createElement("p");
-  description.textContent = "Choose a supported photo and a file-size limit. Download unlocks only after the browser measures a compliant file.";
-  const facts = document.createElement("dl");
-  facts.className = "placeholder-facts";
-  for (const [term, detail] of [["Processing", "On this device"], ["Success rule", "Measured bytes at or below your limit"]]) {
-    const row = document.createElement("div");
-    const title = document.createElement("dt");
-    title.textContent = term;
-    const value = document.createElement("dd");
-    value.textContent = detail;
-    row.append(title, value);
-    facts.append(row);
-  }
-  placeholder.append(kicker, heading, description, facts);
+  description.textContent = "Choose a photo and size.";
+  placeholder.append(kicker, heading, description);
   result.append(placeholder);
 }
 
@@ -213,7 +202,7 @@ function appendText(tag, text, className = "") {
   return node;
 }
 
-function appendDetails(entries) {
+function createDetailsList(entries) {
   const list = document.createElement("dl");
   list.className = "result-details";
   for (const [term, description] of entries) {
@@ -226,7 +215,20 @@ function appendDetails(entries) {
     row.append(title, detail);
     list.append(row);
   }
-  result.append(list);
+  return list;
+}
+
+function appendDetails(entries) {
+  result.append(createDetailsList(entries));
+}
+
+function appendAdvancedDetails(entries) {
+  const details = document.createElement("details");
+  details.className = "result-more";
+  const summary = document.createElement("summary");
+  summary.textContent = "File details";
+  details.append(summary, createDetailsList(entries));
+  result.append(details);
 }
 
 function appendPreviewAndDownload(blob, outputInspection, label, downloadName) {
@@ -248,7 +250,7 @@ function appendPreviewAndDownload(blob, outputInspection, label, downloadName) {
   download.dataset.outputExif = String(outputInspection.hasExif);
   download.dataset.outputIcc = String(outputInspection.hasIcc);
   download.textContent = label;
-  result.append(preview, download);
+  result.append(download, preview);
 }
 
 function renderResult({ file, inspection, target, bitmap, candidate, original }) {
@@ -262,14 +264,17 @@ function renderResult({ file, inspection, target, bitmap, candidate, original })
   appendText("p", formatBytes(blob.size), "result-primary");
 
   if (original) {
-    appendText("p", `${formatBytes(blob.size)} is at or below your ${formatBytes(target.hardCapBytes)} limit. The original file is unchanged. Metadata is unchanged.`);
+    appendText("p", `Under ${formatBytes(target.hardCapBytes)} · original unchanged`);
     appendDetails([
       ["Dimensions", `${width} × ${height}`],
-      ["Format", inspection.label],
-      ["Color", `${inspection.colorModel}${inspection.hasIcc ? " · embedded ICC profile retained with the unchanged bytes" : " · no embedded ICC profile detected"}`],
-      ["Exact bytes", blob.size.toLocaleString("en-US")]
+      ["Format", inspection.label]
     ]);
     appendPreviewAndDownload(blob, inspection, "Download original", file.name);
+    appendAdvancedDetails([
+      ["Color", `${inspection.colorModel}${inspection.hasIcc ? " · embedded ICC profile retained with the unchanged bytes" : " · no embedded ICC profile detected"}`],
+      ["Exact bytes", blob.size.toLocaleString("en-US")],
+      ["Metadata", "The original file is unchanged. Metadata is unchanged."]
+    ]);
     setLive(`The original is already under the limit at ${formatBytes(blob.size)}.`);
   } else {
     const encoding = candidate.quality === null ? "PNG browser re-encode" : `Encoder quality ${Math.round(candidate.quality * 100)}%`;
@@ -283,10 +288,13 @@ function renderResult({ file, inspection, target, bitmap, candidate, original })
     const metadata = outputInspection.hasExif
       ? "EXIF metadata is present in the inspected output; no metadata-removal claim is made"
       : "EXIF/GPS is absent from the inspected output; re-encoding may also remove XMP, IPTC, comments, text, gamma and chromaticity tags";
-    appendText("p", `${formatBytes(blob.size)} is under your ${formatBytes(target.hardCapBytes)} limit. ${formatBytes(file.size)} → ${formatBytes(blob.size)} (${reduction.toFixed(1)}% smaller).`);
+    appendText("p", `${formatBytes(file.size)} → ${formatBytes(blob.size)} · ${reduction.toFixed(1)}% smaller · under ${formatBytes(target.hardCapBytes)}`);
     appendDetails([
       ["Dimensions", `${bitmap.width} × ${bitmap.height} → ${width} × ${height}`],
-      ["Format", `${inspection.label} · ${encoding}`],
+      ["Format", `${inspection.label} · ${encoding}`]
+    ]);
+    appendPreviewAndDownload(blob, outputInspection, "Download compressed photo", candidate.downloadName);
+    appendAdvancedDetails([
       ["Color model", inspection.colorModel === outputInspection.colorModel ? inspection.colorModel : `${inspection.colorModel} → ${outputInspection.colorModel}`],
       ["Transparency", transparency],
       ["Color profile", colorProfile],
@@ -296,7 +304,6 @@ function renderResult({ file, inspection, target, bitmap, candidate, original })
         ? `EXIF orientation ${inspection.exifOrientation} was applied by this browser's decoded bitmap and baked into pixels; the orientation tag is not copied`
         : "No EXIF orientation tag detected"]
     ]);
-    appendPreviewAndDownload(blob, outputInspection, "Download compressed photo", candidate.downloadName);
     setLive(`Compressed image ready at ${formatBytes(blob.size)}, under the selected limit.`);
   }
 

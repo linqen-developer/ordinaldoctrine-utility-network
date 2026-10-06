@@ -28,8 +28,7 @@
   </header>
   <main id="main-content" class="page-shell" tabindex="-1"><div class="work-column">
     <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/calculators/">Calculators</a></li><li><span aria-current="page">ISO week number</span></li></ol></nav>
-    <h1>ISO week number calculator</h1>
-    <p class="lede">Find the ISO week-year and week number for a date.</p>
+    <h1>ISO week number</h1>
     <noscript><section class="startup-help"><h2>JavaScript is required for this tool</h2><p>Enable JavaScript and reload the page. The instructions and method remain available below.</p></section></noscript>
     <section id="tool-startup-help" class="startup-help" role="alert" hidden>
       <h2>Tool did not start</h2>
@@ -42,7 +41,7 @@
     <input id="week-date" type="date" min="0001-01-01" max="9999-12-31" aria-describedby="week-date-error">
     <p id="week-date-error" class="field-error"></p>
   </div></div>
-    <p class="privacy-note">Calculated in this browser. Your dates are not sent or stored.</p>
+    <p class="privacy-note">On this device · not sent or stored</p>
     <div id="date-tool-result" class="result-region">
       <h2>ISO week</h2>
       <p class="empty-result">Choose a date to find its ISO week.</p>
@@ -54,21 +53,11 @@
     <p id="date-tool-status" class="status-line" aria-hidden="true"></p>
     <p id="date-tool-live" class="sr-only" role="status" aria-live="polite"></p>
   </section>
-    <section aria-labelledby="related-heading">
-      <h2 id="related-heading">Related tools</h2>
-      <ul class="link-list related-list">
-    <li><a href="/calculators/date-difference/"><span class="link-title">Date difference</span></a></li>
-    <li><a href="/calculators/age/"><span class="link-title">Age calculator</span></a></li>
-    <li><a href="/calculators/add-subtract-date/"><span class="link-title">Add or subtract date</span></a></li></ul>
-    </section>
-    <section class="plain-section">
-      <h2>How to use it</h2>
-      <ol class="method-list"><li>Choose one Gregorian date.</li><li>Read or copy its ISO week-year and week number.</li></ol>
-      <h2>Method and limitations</h2>
-      <ul class="method-list"><li>ISO 8601 weeks start on Monday.</li><li>Week 1 is the week containing 4 January, equivalently the first Thursday of the ISO week-year.</li><li>The ISO week-year can differ from the date's calendar year near New Year. No locale-specific Sunday-first or partial-week rule is used.</li></ul>
-      <h2>Examples</h2><p><strong>1 Jan 2016:</strong> 2015-W53.</p><p><strong>4 Jan 2016:</strong> 2016-W01.</p>
-    </section>
-    <p class="metadata">Method reviewed 6 October 2026.</p>
+    <nav class="more-tools" aria-label="Related tools"><span>More</span><ul><li><a href="/calculators/date-difference/">Date difference</a></li><li><a href="/calculators/age/">Age calculator</a></li><li><a href="/calculators/add-subtract-date/">Add or subtract date</a></li></ul></nav>
+    <details class="page-details">
+      <summary>Method & limits</summary>
+      <div class="page-details-body"><ul class="method-list"><li>ISO weeks start Monday; week 1 contains 4 January.</li><li>The ISO week-year can differ from the calendar year near New Year.</li></ul><p class="metadata">Reviewed 6 October 2026.</p></div>
+    </details>
   </div>
   <script src="/assets/js/startup-watchdog.js" defer></script>
   <script type="module" src="/assets/js/date-calculators.js"></script></main>

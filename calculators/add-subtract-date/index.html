@@ -28,8 +28,7 @@
   </header>
   <main id="main-content" class="page-shell" tabindex="-1"><div class="work-column">
     <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/calculators/">Calculators</a></li><li><span aria-current="page">Add or subtract date</span></li></ol></nav>
-    <h1>Add or subtract days from a date</h1>
-    <p class="lede">Move one calendar date by a signed whole-day offset.</p>
+    <h1>Add or subtract days</h1>
     <noscript><section class="startup-help"><h2>JavaScript is required for this tool</h2><p>Enable JavaScript and reload the page. The instructions and method remain available below.</p></section></noscript>
     <section id="tool-startup-help" class="startup-help" role="alert" hidden>
       <h2>Tool did not start</h2>
@@ -44,10 +43,10 @@
   </div><div class="field">
     <label for="day-offset">Signed day offset</label>
     <input id="day-offset" type="text" inputmode="numeric" autocomplete="off" placeholder="For example, 30 or -14" aria-describedby="day-offset-help day-offset-error">
-    <p id="day-offset-help" class="help">Use a whole number. Positive adds days; negative subtracts days.</p>
+    <p id="day-offset-help" class="help">Positive adds · negative subtracts</p>
     <p id="day-offset-error" class="field-error"></p>
   </div></div>
-    <p class="privacy-note">Calculated in this browser. Your dates are not sent or stored.</p>
+    <p class="privacy-note">On this device · not sent or stored</p>
     <div id="date-tool-result" class="result-region">
       <h2>Resulting date</h2>
       <p class="empty-result">Choose a start date and enter a signed whole-day offset.</p>
@@ -59,21 +58,11 @@
     <p id="date-tool-status" class="status-line" aria-hidden="true"></p>
     <p id="date-tool-live" class="sr-only" role="status" aria-live="polite"></p>
   </section>
-    <section aria-labelledby="related-heading">
-      <h2 id="related-heading">Related tools</h2>
-      <ul class="link-list related-list">
-    <li><a href="/calculators/date-difference/"><span class="link-title">Date difference</span></a></li>
-    <li><a href="/calculators/age/"><span class="link-title">Age calculator</span></a></li>
-    <li><a href="/calculators/business-days/"><span class="link-title">Business days</span></a></li></ul>
-    </section>
-    <section class="plain-section">
-      <h2>How to use it</h2>
-      <ol class="method-list"><li>Choose one start date.</li><li>Enter a signed whole-day offset: positive to add, negative to subtract or zero to keep the date.</li><li>Read or copy the resulting date.</li></ol>
-      <h2>Method and limitations</h2>
-      <ul class="method-list"><li>The start must be a real <code>YYYY-MM-DD</code> Gregorian date and the offset must be a whole number.</li><li>Arithmetic uses UTC date-only boundaries of 86,400,000 milliseconds. Daylight-saving transitions and the browser's time zone cannot change the result.</li><li>Only calendar days are moved. Business-day, holiday, local deadline and time-of-day rules are not applied.</li><li>Results are limited to dates from 0001-01-01 through 9999-12-31.</li></ul>
-      <h2>Examples</h2><p><strong>28 Feb 2024 + 1 day:</strong> 29 Feb 2024.</p><p><strong>1 Jan 2026 − 1 day:</strong> 31 Dec 2025.</p>
-    </section>
-    <p class="metadata">Method reviewed 6 October 2026.</p>
+    <nav class="more-tools" aria-label="Related tools"><span>More</span><ul><li><a href="/calculators/date-difference/">Date difference</a></li><li><a href="/calculators/age/">Age calculator</a></li><li><a href="/calculators/business-days/">Business days</a></li></ul></nav>
+    <details class="page-details">
+      <summary>Method & limits</summary>
+      <div class="page-details-body"><ul class="method-list"><li>Positive whole numbers add days; negative numbers subtract days.</li><li>Moves calendar days only; no holidays, business-day or deadline rules.</li><li>Supported dates are 0001-01-01 through 9999-12-31.</li></ul><p class="metadata">Reviewed 6 October 2026.</p></div>
+    </details>
   </div>
   <script src="/assets/js/startup-watchdog.js" defer></script>
   <script type="module" src="/assets/js/date-calculators.js"></script></main>

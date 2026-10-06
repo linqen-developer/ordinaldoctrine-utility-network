@@ -28,8 +28,7 @@
   </header>
   <main id="main-content" class="page-shell" tabindex="-1"><div class="work-column">
     <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/calculators/">Calculators</a></li><li><span aria-current="page">Business days</span></li></ol></nav>
-    <h1>Business days between dates</h1>
-    <p class="lede">Count Monday-to-Friday dates with visible endpoint rules.</p>
+    <h1>Business days calculator</h1>
     <noscript><section class="startup-help"><h2>JavaScript is required for this tool</h2><p>Enable JavaScript and reload the page. The instructions and method remain available below.</p></section></noscript>
     <section id="tool-startup-help" class="startup-help" role="alert" hidden>
       <h2>Tool did not start</h2>
@@ -50,7 +49,7 @@
     <label class="checkbox-label" for="business-include-start"><input id="business-include-start" type="checkbox"> Include start date</label>
     <label class="checkbox-label" for="business-include-end"><input id="business-include-end" type="checkbox" checked> Include end date</label>
   </div>
-    <p class="privacy-note">Calculated in this browser. Your dates are not sent or stored.</p>
+    <p class="privacy-note">On this device · not sent or stored</p>
     <div id="date-tool-result" class="result-region">
       <h2>Business-day count</h2>
       <p class="empty-result">Choose a start date and an end date to count business days.</p>
@@ -62,21 +61,11 @@
     <p id="date-tool-status" class="status-line" aria-hidden="true"></p>
     <p id="date-tool-live" class="sr-only" role="status" aria-live="polite"></p>
   </section>
-    <section aria-labelledby="related-heading">
-      <h2 id="related-heading">Related tools</h2>
-      <ul class="link-list related-list">
-    <li><a href="/calculators/date-difference/"><span class="link-title">Date difference</span></a></li>
-    <li><a href="/calculators/age/"><span class="link-title">Age calculator</span></a></li>
-    <li><a href="/calculators/add-subtract-date/"><span class="link-title">Add or subtract date</span></a></li></ul>
-    </section>
-    <section class="plain-section">
-      <h2>How to use it</h2>
-      <ol class="method-list"><li>Choose a start date and an end date. Reverse order is valid.</li><li>Choose whether the entered start date and entered end date are included.</li><li>Read or copy the Monday-to-Friday count.</li></ol>
-      <h2>Method and limitations</h2>
-      <ul class="method-list"><li>Monday through Friday count as business days; Saturday and Sunday do not.</li><li>The start date is excluded and the end date is included by default. Each checkbox applies to the endpoint named on the input, even in reverse order.</li><li>If both inputs are the same weekday, it is counted once when either endpoint is included and zero times when both are excluded.</li><li>Public holidays, observances, country rules, alternate workweeks and legal deadline rules are not included.</li></ul>
-      <h2>Examples</h2><p><strong>Mon 5 Oct 2026 → Mon 12 Oct 2026, start excluded and end included:</strong> 5 business days.</p><p><strong>Sat 10 Oct 2026 → Mon 12 Oct 2026:</strong> 1 business day with the default endpoint rules.</p>
-    </section>
-    <p class="metadata">Method reviewed 6 October 2026.</p>
+    <nav class="more-tools" aria-label="Related tools"><span>More</span><ul><li><a href="/calculators/date-difference/">Date difference</a></li><li><a href="/calculators/age/">Age calculator</a></li><li><a href="/calculators/add-subtract-date/">Add or subtract date</a></li></ul></nav>
+    <details class="page-details">
+      <summary>Method & limits</summary>
+      <div class="page-details-body"><ul class="method-list"><li>Monday-Friday count; weekends do not.</li><li>Start is excluded and end included by default. The checkboxes change those endpoints.</li><li>Public holidays and country-specific workweeks are not included.</li></ul><p class="metadata">Reviewed 6 October 2026.</p></div>
+    </details>
   </div>
   <script src="/assets/js/startup-watchdog.js" defer></script>
   <script type="module" src="/assets/js/date-calculators.js"></script></main>

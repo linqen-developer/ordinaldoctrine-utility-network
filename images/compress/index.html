@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/global.css">
   <link rel="stylesheet" href="/assets/css/tool.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Images","item":"https://ordinaldoctrine.com/images/"},{"@type":"ListItem","position":2,"name":"Compress image to a target size","item":"https://ordinaldoctrine.com/images/compress/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Images","item":"https://ordinaldoctrine.com/images/"},{"@type":"ListItem","position":2,"name":"Image compressor","item":"https://ordinaldoctrine.com/images/compress/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Image compressor to a target size","description":"Compress one static JPEG, PNG or WebP locally to a measured KB or MB limit when feasible, with visible quality and dimension changes.","url":"https://ordinaldoctrine.com/images/compress/","applicationCategory":"UtilitiesApplication"}</script>
 </head>
 <body class="tool-page tool-image-compressor">
@@ -27,9 +27,8 @@
     </div>
   </header>
   <main id="main-content" class="page-shell" tabindex="-1"><div class="work-column">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/images/">Images</a></li><li><span aria-current="page">Compress image to a target size</span></li></ol></nav>
-    <h1>Compress an image to a target size</h1>
-    <p class="lede">Set 1 MB or any supported KB/MB limit and download the best compliant result found in your browser when feasible.</p>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/images/">Images</a></li><li><span aria-current="page">Image compressor</span></li></ol></nav>
+    <h1>Compress image</h1>
     <noscript><section class="startup-help"><h2>JavaScript is required for this tool</h2><p>Enable JavaScript and reload the page. The instructions and method remain available below.</p></section></noscript>
     <section id="tool-startup-help" class="startup-help" role="alert" hidden>
       <h2>Tool did not start</h2>
@@ -45,7 +44,7 @@
         <label class="button file-picker-button" for="image-file">Choose photo</label>
         <p id="image-file-summary" class="file-summary">No image selected.</p>
       </div>
-      <p id="image-file-help" class="help">Static JPEG, PNG or WebP · up to 50 MB, 50 megapixels and 16,384 px on either axis.</p>
+      <p id="image-file-help" class="help">JPEG, PNG or WebP · max 50 MB</p>
       <p id="image-file-error" class="field-error"></p>
     </div>
     <fieldset class="target-fieldset">
@@ -60,13 +59,13 @@
         <div class="field">
           <label for="image-target">Custom target</label>
           <input id="image-target" type="text" inputmode="decimal" autocomplete="off" value="1" aria-describedby="image-target-help image-target-error">
-          <p id="image-target-help" class="help">Decimal units: 1 KB = 1,000 bytes and 1 MB = 1,000,000 bytes. Range: 10 KB–10 MB.</p>
+          <p id="image-target-help" class="help">10 KB–10 MB · decimal units</p>
           <p id="image-target-error" class="field-error"></p>
         </div>
         <div class="field unit-field"><label for="image-target-unit">Unit</label><select id="image-target-unit"><option value="KB">KB</option><option value="MB" selected>MB</option></select></div>
       </div>
     </fieldset>
-    <p class="privacy-note">Processed on this device. Your image is not transmitted, stored by this site or used for training.</p>
+    <p class="privacy-note">On this device · no upload</p>
     <div class="action-row">
       <button id="compress-image" class="button button-primary" type="button" disabled>Compress photo</button>
       <button id="reset-image-compressor" class="button" type="button">Reset</button>
@@ -75,31 +74,17 @@
     </div>
     <section id="image-result" class="result-region image-result">
       <div class="image-result-placeholder">
-        <p class="result-kicker">Measured output</p>
-        <h2>Your result will appear here</h2>
-        <p>Choose a supported photo and a file-size limit. Download unlocks only after the browser measures a compliant file.</p>
-        <dl class="placeholder-facts"><div><dt>Processing</dt><dd>On this device</dd></div><div><dt>Success rule</dt><dd>Measured bytes at or below your limit</dd></div></dl>
+        <p class="result-kicker">Output</p>
+        <h2>Result</h2>
+        <p>Choose a photo and size.</p>
       </div>
     </section>
     <p id="image-live" class="sr-only" role="status" aria-live="polite"></p>
   </section>
-    <section aria-labelledby="related-heading">
-      <h2 id="related-heading">Related tools</h2>
-      <ul class="link-list related-list">
-    <li><a href="/calculators/date-difference/"><span class="link-title">Date difference</span></a></li>
-    <li><a href="/calculators/age/"><span class="link-title">Age calculator</span></a></li>
-    <li><a href="/calculators/add-subtract-date/"><span class="link-title">Add or subtract date</span></a></li></ul>
-    </section>
-    <section class="plain-section">
-      <h2>How to use it</h2>
-      <ol class="method-list"><li>Choose one static JPEG, PNG or WebP photo.</li><li>Select 1 MB, 500 KB, 200 KB, 100 KB or enter a custom limit from 10 KB through 10 MB.</li><li>Compress, review the measured output and any dimension or metadata change, then download.</li></ol>
-      <h2>How it works</h2>
-      <ul class="method-list"><li>The image container and declared dimensions are checked before browser decoding, then the image is decoded and re-encoded locally. Image content is not uploaded, logged by this site or used for training.</li><li>1 KB means 1,000 bytes and 1 MB means 1,000,000 bytes. Re-encoded files use 0.5% headroom and must measure at or below that operational target before download is enabled.</li><li>JPEG and WebP are tested from 92% through a 70% encoder-quality floor. If needed, dimensions reduce in 10% steps to a 640 px long-edge floor. The first compliant result keeps the largest tested dimensions and quality.</li><li>PNG uses a browser re-encode that keeps alpha but can change dimensions, pixel representation, metadata and color-profile information. It is not silently converted to JPEG. An original already below the hard limit is returned unchanged.</li><li>The result reports inspected EXIF, ICC, alpha and color-model outcomes. Re-encoding can also remove XMP, IPTC, comments, PNG text, gamma and chromaticity tags. Every changed dimension, format and measured byte count is shown before download.</li></ul>
-      <h2>Limits</h2>
-      <p>Files are limited to 50 MB, 50 megapixels and 16,384 px on either axis for validation and unchanged-original results. Re-encoding is limited to 12 megapixels to keep peak memory bounded. Animated images, SVG, HEIC, GIF, TIFF, RAW and PDF are not supported. Some targets cannot be met within the default quality and size floors; the tool reports that honestly instead of rounding an oversized result down.</p>
-      <p><strong>Verified browser scope:</strong> current desktop Chrome, Edge and Firefox on Windows. Other browsers must support local image-bitmap decoding and same-format canvas export; unverified Safari, iOS and physical mobile environments are not claimed as tested.</p>
-    </section>
-    <p class="metadata">Method reviewed 6 October 2026.</p>
+    <details class="page-details">
+      <summary>Method & limits</summary>
+      <div class="page-details-body"><ul class="method-list"><li>Processes one static JPEG, PNG or WebP locally. 1 KB = 1,000 bytes; 1 MB = 1,000,000 bytes.</li><li>An original already below the limit is returned unchanged. Otherwise quality and then dimensions may be reduced.</li><li>Maximum input: 50 MB, 50 MP and 16,384 px per axis. Re-encoding is limited to 12 MP.</li><li>Animation and unsupported formats are rejected. Re-encoding can remove metadata or color-profile information; file details stay available before download.</li><li>Verified on current Windows Chrome, Edge and Firefox. Safari, iOS and physical mobile devices are not claimed as tested.</li></ul><p class="metadata">Reviewed 6 October 2026.</p></div>
+    </details>
   </div>
   <script src="/assets/js/startup-watchdog.js" defer></script>
   <script type="module" src="/assets/js/image-compressor.js"></script></main>

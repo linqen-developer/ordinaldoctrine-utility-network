@@ -29,7 +29,6 @@
   <main id="main-content" class="page-shell" tabindex="-1"><div class="work-column">
     <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/calculators/">Calculators</a></li><li><span aria-current="page">Age calculator</span></li></ol></nav>
     <h1>Age calculator</h1>
-    <p class="lede">Calculate birthday-based age on a selected date with an explicit month-end rule.</p>
     <noscript><section class="startup-help"><h2>JavaScript is required for this tool</h2><p>Enable JavaScript and reload the page. The instructions and method remain available below.</p></section></noscript>
     <section id="tool-startup-help" class="startup-help" role="alert" hidden>
       <h2>Tool did not start</h2>
@@ -46,7 +45,7 @@
     <input id="age-on-date" type="date" min="0001-01-01" max="9999-12-31" aria-describedby="age-on-date-error">
     <p id="age-on-date-error" class="field-error"></p>
   </div></div>
-    <p class="privacy-note">Calculated in this browser. Your dates are not sent or stored.</p>
+    <p class="privacy-note">On this device · not sent or stored</p>
     <div id="date-tool-result" class="result-region">
       <h2>Age on the selected date</h2>
       <p class="empty-result">Choose a date of birth and an age-on date to see the result.</p>
@@ -58,23 +57,11 @@
     <p id="date-tool-status" class="status-line" aria-hidden="true"></p>
     <p id="date-tool-live" class="sr-only" role="status" aria-live="polite"></p>
   </section>
-    <section aria-labelledby="related-heading">
-      <h2 id="related-heading">Related tools</h2>
-      <ul class="link-list related-list">
-    <li><a href="/calculators/date-difference/"><span class="link-title">Date difference</span></a></li>
-    <li><a href="/calculators/add-subtract-date/"><span class="link-title">Add or subtract date</span></a></li>
-    <li><a href="/calculators/business-days/"><span class="link-title">Business days</span></a></li></ul>
-    </section>
-    <section class="plain-section">
-      <h2>How to use it</h2>
-      <ol class="method-list"><li>Choose a date of birth.</li><li>Choose the date on which to measure age.</li><li>Read or copy the completed years, remaining months and remaining days.</li></ol>
-      <h2>Method and limitations</h2>
-      <ul class="method-list"><li>Both inputs must be real <code>YYYY-MM-DD</code> Gregorian dates. The selected date cannot be before the date of birth.</li><li>The result uses the common birthday-based system: age increases after a completed birthday, not at the start of a calendar year.</li><li>If a birthday day does not exist in a target month, it is clamped to that month's last day. For example, 29 February reaches a yearly anniversary on 28 February in a non-leap year, and 31 January plus one completed month reaches the last day of February.</li><li>No cultural, legal, gestational or time-of-day age convention is applied.</li></ul>
-      <h2>Examples</h2>
-      <p><strong>29 Feb 2024 → 28 Feb 2025:</strong> 1 year, 0 months and 0 days under the stated month-end rule.</p>
-      <p><strong>15 Jun 2000 → 20 Aug 2026:</strong> 26 years, 2 months and 5 days.</p>
-    </section>
-    <p class="metadata">Method reviewed 6 October 2026.</p>
+    <nav class="more-tools" aria-label="Related tools"><span>More</span><ul><li><a href="/calculators/date-difference/">Date difference</a></li><li><a href="/calculators/add-subtract-date/">Add or subtract date</a></li><li><a href="/calculators/business-days/">Business days</a></li></ul></nav>
+    <details class="page-details">
+      <summary>Method & limits</summary>
+      <div class="page-details-body"><ul class="method-list"><li>Uses completed birthdays on the selected date.</li><li>Missing month-end dates clamp to the last day of that month.</li><li>Gregorian dates only; no legal or cultural age convention is applied.</li></ul><p class="metadata">Reviewed 6 October 2026.</p></div>
+    </details>
   </div>
   <script src="/assets/js/startup-watchdog.js" defer></script>
   <script type="module" src="/assets/js/date-calculators.js"></script></main>

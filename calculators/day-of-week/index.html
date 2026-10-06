@@ -28,8 +28,7 @@
   </header>
   <main id="main-content" class="page-shell" tabindex="-1"><div class="work-column">
     <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/calculators/">Calculators</a></li><li><span aria-current="page">Day of week</span></li></ol></nav>
-    <h1>Day of week calculator</h1>
-    <p class="lede">Find the weekday for a Gregorian calendar date.</p>
+    <h1>Day of week</h1>
     <noscript><section class="startup-help"><h2>JavaScript is required for this tool</h2><p>Enable JavaScript and reload the page. The instructions and method remain available below.</p></section></noscript>
     <section id="tool-startup-help" class="startup-help" role="alert" hidden>
       <h2>Tool did not start</h2>
@@ -42,7 +41,7 @@
     <input id="weekday-date" type="date" min="0001-01-01" max="9999-12-31" aria-describedby="weekday-date-error">
     <p id="weekday-date-error" class="field-error"></p>
   </div></div>
-    <p class="privacy-note">Calculated in this browser. Your dates are not sent or stored.</p>
+    <p class="privacy-note">On this device · not sent or stored</p>
     <div id="date-tool-result" class="result-region">
       <h2>Day of the week</h2>
       <p class="empty-result">Choose a date to find its weekday.</p>
@@ -54,21 +53,11 @@
     <p id="date-tool-status" class="status-line" aria-hidden="true"></p>
     <p id="date-tool-live" class="sr-only" role="status" aria-live="polite"></p>
   </section>
-    <section aria-labelledby="related-heading">
-      <h2 id="related-heading">Related tools</h2>
-      <ul class="link-list related-list">
-    <li><a href="/calculators/date-difference/"><span class="link-title">Date difference</span></a></li>
-    <li><a href="/calculators/age/"><span class="link-title">Age calculator</span></a></li>
-    <li><a href="/calculators/add-subtract-date/"><span class="link-title">Add or subtract date</span></a></li></ul>
-    </section>
-    <section class="plain-section">
-      <h2>How to use it</h2>
-      <ol class="method-list"><li>Choose one Gregorian date.</li><li>Read or copy the English weekday name.</li></ol>
-      <h2>Method and limitations</h2>
-      <ul class="method-list"><li>The input must be a real <code>YYYY-MM-DD</code> date from 0001 through 9999.</li><li>The date is constructed at UTC midnight and read with the UTC weekday rule, so the browser's time zone cannot move it to another weekday.</li><li>The proleptic Gregorian calendar is used for all supported years. Historical local calendar adoption is not reconstructed.</li></ul>
-      <h2>Examples</h2><p><strong>29 Feb 2024:</strong> Thursday.</p><p><strong>1 Jan 2000:</strong> Saturday.</p>
-    </section>
-    <p class="metadata">Method reviewed 6 October 2026.</p>
+    <nav class="more-tools" aria-label="Related tools"><span>More</span><ul><li><a href="/calculators/date-difference/">Date difference</a></li><li><a href="/calculators/age/">Age calculator</a></li><li><a href="/calculators/add-subtract-date/">Add or subtract date</a></li></ul></nav>
+    <details class="page-details">
+      <summary>Method & limits</summary>
+      <div class="page-details-body"><ul class="method-list"><li>Uses the proleptic Gregorian calendar and UTC date arithmetic.</li><li>Historical local calendar adoption is not reconstructed.</li></ul><p class="metadata">Reviewed 6 October 2026.</p></div>
+    </details>
   </div>
   <script src="/assets/js/startup-watchdog.js" defer></script>
   <script type="module" src="/assets/js/date-calculators.js"></script></main>
